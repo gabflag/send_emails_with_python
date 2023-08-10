@@ -20,17 +20,15 @@ def send_email_erro_api_image(user_email, user_name, tempo_envio):
         email_user = config('EMAIL_USER')
         email_password = config('EMAIL_PASSWORD')
 
-        with open('email_template.html', 'r') as file:
+        with open('email_template.html', 'r', encoding='utf-8') as file:
             html_template = file.read()
-
-        # Cria um objeto MIMEMultipart para o email
+            
         email = MIMEMultipart()
         email['From'] = from_email
         email['To'] = recipient_email
         email['Subject'] = subject
 
-        # Define o corpo do email como o conteúdo do template HTML
-        email.attach(MIMEText(html_template, 'html'))
+        email.attach(MIMEText(html_template, 'html', _charset='utf-8'))
 
         try:
             server = smtplib.SMTP(smtp_server, smtp_port)
