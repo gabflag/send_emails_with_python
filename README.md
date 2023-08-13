@@ -5,22 +5,26 @@
    - Python 3.11.2
    - python-decouple
   
-# A respeito do programa:
-  Este código Python tem como objetivo permitir o envio assíncrono de e-mails utilizando a biblioteca smtplib e a funcionalidade de threads da biblioteca threading. Ele é projetado para enviar um e-mail após um determinado período de tempo, especificado como argumento. O conteúdo do e-mail é gerado a partir de um template HTML lido de um arquivo.
+# About the program:
   
-A biblioteca decouple é usada para ler as credenciais do e-mail do remetente (endereço de e-mail e senha) a partir de um arquivo de configuração externo. Isso ajuda a manter as credenciais fora do código-fonte, melhorando a segurança.
-A parte interessante desse código é a capacidade de fazer o envio de email marketing de forma fácil e gratuito.
+   This Python code aims to enable the asynchronous sending of emails using the smtplib library and the threading functionality from the threading library. It is designed to send an email after a certain period of time, specified as an argument. The content of the email is generated from an HTML template read from a file.
 
-# Exemplo de email marketing encaminhado:
+   The decouple library is used to read the sender's email credentials (email address and password) from an external configuration file. This helps to keep the credentials out of the source code, enhancing security.
+
+The interesting part of this code is its ability to perform easy and free email marketing, fully functional on any mail server.
+
+# Example of forwarded email marketing:
 ![image](https://user-images.githubusercontent.com/95552879/255031482-b60713bf-12bf-4597-a3f5-0fda47545493.png)
 
-Confira esse repositório para mais informações para você criar seu template:
+Check out this repository for more information on creating your email template:
 
 https://github.com/gabflag/make_your_own_email_marketing
 
+# Dev Comments:
+   
+   I had an issue that was occurring because the .format() method was being applied to the content of the HTML template, which caused conflicts with the replacement of the {} curly braces that are part of the CSS code. Since CSS also uses curly braces {} to define style blocks, the .format() method was interpreting these braces as placeholders for string formatting, which resulted in an error.
 
-# Comentários do Dev:
-  Tive um problema que estava ocorrendo porque o método .format() estava sendo aplicado ao conteúdo do template HTML, o que causava conflitos de substituição das chaves {} que fazem parte do código CSS. Como o CSS também utiliza chaves {} para definir blocos de estilo, o método .format() estava interpretando essas chaves como placeholders para formatação de string, o que gerava o erro.
+   By removing the usage of the .format() method and directly setting the email body as the content of the HTML template, I managed to avoid this conflict and allowed the HTML to be sent without unwanted changes or execution errors.
 
-Ao remover o uso do método .format() e definir diretamente o corpo do email como o conteúdo do template HTML, consegui evitar esse conflito e permitiu que o HTML fosse enviado sem alterações indesejadas ou erros de execução.
+   An important point was convert html into string specifying UTF-8
 
