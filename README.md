@@ -28,3 +28,6 @@ https://github.com/gabflag/make_your_own_email_marketing
 
    An important point was convert html into string specifying UTF-8
 
+# Read here if you have questions on how to download and use the code:
+
+https://github.com/gabflag/readme#readme
